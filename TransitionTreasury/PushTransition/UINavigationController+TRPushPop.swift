@@ -30,7 +30,6 @@ public extension UINavigationController {
         let transitionDelegate = (topViewController as? NavgationTransitionable)?.tr_pushTransition
         transitionDelegate?.completion = { [weak self] in
             completion?()
-            (self?.topViewController as? NavgationTransitionable)?.tr_pushTransition = nil
         }
         delegate = transitionDelegate
         
