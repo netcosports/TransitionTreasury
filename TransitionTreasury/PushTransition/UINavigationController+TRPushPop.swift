@@ -28,9 +28,7 @@ public extension UINavigationController {
     @discardableResult
     public func tr_popViewController(_ completion: (() -> Void)? = nil) -> UIViewController? {
         let transitionDelegate = (topViewController as? NavgationTransitionable)?.tr_pushTransition
-        transitionDelegate?.completion = { [weak self] in
-            completion?()
-        }
+        transitionDelegate?.completion = completion
         delegate = transitionDelegate
         
         return popViewController(animated: true)
